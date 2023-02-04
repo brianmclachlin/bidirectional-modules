@@ -1,8 +1,9 @@
 import {Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {Car} from "@bidirectional-modules/cars";
-import {Field, Int} from "@nestjs/graphql";
+import {Field, Int, ObjectType} from "@nestjs/graphql";
+import {Car} from "../cars/car.entity";
 
 @Entity()
+@ObjectType()
 export class User {
   @Field(() => Int)
   @PrimaryGeneratedColumn('increment', { unsigned: true })
@@ -13,5 +14,5 @@ export class User {
     () => Car,
     (car) => car.owner,
   )
-  cars?: Car[];
+  cars: Car[];
 }

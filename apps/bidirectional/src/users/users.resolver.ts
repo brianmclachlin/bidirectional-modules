@@ -1,7 +1,7 @@
 import {Args, Int, Parent, Query, ResolveField, Resolver,} from '@nestjs/graphql';
 import {User} from "./user.entity";
 import {UsersService} from "./users.service";
-import {CarsService} from "@bidirectional-modules/cars";
+import {CarsService} from "../cars/cars.service";
 
 @Resolver(() => User)
 export class UsersResolver {
